@@ -275,6 +275,23 @@ textarea {
   --bs-btn-disabled-border-color: #7464a1;
 }
 
+.btn-abo {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #1a0f38;
+  --bs-btn-border-color: #08001f;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #24115a;
+  --bs-btn-hover-border-color: #5d5081;
+  --bs-btn-focus-shadow-rgb: 137, 123, 175;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #5d5081;
+  --bs-btn-active-border-color: #574b79;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #7464a1;
+  --bs-btn-disabled-border-color: #7464a1;
+}
+
 /* Styl dla ustawienia wyświetlania elementów jako flex */
 .d-flex {
   display: flex !important;
@@ -500,6 +517,27 @@ textarea {
   }
 }
 
+.language-selector {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Możesz dostosować wartość marginesu */
+}
+.language-selector img {
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s; /* Dodanie animacji */
+}
+.language-selector img:hover {
+  transform: scale(1.1); /* Powiększenie ikony po najechaniu */
+  opacity: 0.8; /* Zmniejszenie przezroczystości po najechaniu */
+}
+.language-selector img.selected {
+  border: 2px solid #007bff; /* Dodanie obramowania dla aktywnej ikony */
+  border-radius: 50%;
+}
+
 /* Pozycjonowanie na górze strony dla elementu */
 .fixed-top {
   position: fixed;
@@ -622,6 +660,10 @@ textarea {
 }
 
 /* ustawiam różne obrazy na tło w zależności od podstrony */
+.cats {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-cats.jpg");
+}
+
 .iceland {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-iceland.jpg");
 }
@@ -632,6 +674,10 @@ textarea {
 
 .covers1 {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-covers1.jpg");
+}
+
+.covers2 {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-covers2.jpg");
 }
 
 .autumn {
@@ -655,7 +701,7 @@ textarea {
 }
 
 /* Style dla tła różnych sekcji, położenie, rozmiar i efekt paralaksy */
-.iceland, .norway, .covers1, .autumn, .winter, .carmelis, .bc, .front {
+.iceland, .norway, .covers1, .autumn, .winter, .carmelis, .bc, .front, .covers2, .cats {
   position: relative; /* pozycjonowanie względem */
   width: 100%; /* szerokość na całą dostępną przestrzeń */
   height: auto; /* wysokość automatyczna */

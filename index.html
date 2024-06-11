@@ -24,13 +24,17 @@
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive"> <!-- klasa do zapadnięcia navbaru przy zmianie szerokości strony-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto"> <!--Nawigacja po stronie tytułowej, odnoścniki do id sekcji-->
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#albums">Music</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
                     </ul>
+                    <div class="language-selector ms-auto">
+                        <img src="assets/img/uk.png" alt="English" id="lang-en">
+                        <img src="assets/img/pl.png" alt="Polski" id="lang-pl">
+                    </div>
                 </div>
             </div>
         </nav>
@@ -55,9 +59,11 @@
                     <div class="col-lg-8">
                         <h2 class="text-white mb-4" data-translate="abouttitle">Hi, I'm Matt and I make music.</h2>
                         <p class="text-white-50" data-translate="aboutdescription">
-                            I make ambient, electronic, acoustic and sometimes alternative music. Playing guitar, bass and piano (and some other funny instruments). 
-                            If you wanna listen to it, just keep scrolling. Here on this site you can find all of it and listen to it freely.
+                            I make ambient, electronic, acoustic and sometimes alternative music. Playing guitar, bass and piano (and some other funny instruments). If you wanna
+                            know more about Matt just click the button below! 
+                            If you wanna listen to his music, just keep scrolling. Here on this site you can find all of it and listen to it freely.
                         </p>
+                        <a class="btn btn-abo" href="about.html" data-translate="aboutbutton">Learn more!</a>
                     </div>
                 </div>
             </div>
@@ -78,6 +84,18 @@
 
                 <!-- Tabela z albumami -->
                 <div class="row justify-content-center"> <!--Div do wszystkich albumów środkujący-->
+                    <div class="col-album text-center"> <!--Div dla poszczególnego albumu, aby się razem ułożyły ładnie-->
+                        <a href="lostkittens.html" class="album-link">
+                            <img class="img-fluid album-img" src="assets/img/CAT1.jpg" alt="Lost Kittens">
+                            <h3>Lost Kittens</h3>
+                        </a>
+                    </div>
+                    <div class="col-album text-center"> <!--Div dla poszczególnego albumu, aby się razem ułożyły ładnie-->
+                        <a href="covers2.html" class="album-link">
+                            <img class="img-fluid album-img" src="assets/img/Vol2.jpg" alt="Covers Vol. 2">
+                            <h3>Covers Vol.2</h3>
+                        </a>
+                    </div>
                     <div class="col-album text-center"> <!--Div dla poszczególnego albumu, aby się razem ułożyły ładnie-->
                         <a href="iceland.html" class="album-link">
                             <img class="img-fluid album-img" src="assets/img/Iceland.png" alt="Iceland">
@@ -168,6 +186,10 @@
                     <div class="col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-4"></i> <!-- Ikonka z biblioteki bootstrapa-->
                         <h2 class="mb-4" data-translate="msgtitle">Send me a message!</h2> <!--Nagłówek formularza-->
+                        <p class="text-white" data-translate="msgdescription">
+                            If you need to contact my about some business stuff (colaboration, using my music, soundtrack comission) you can do that right here!
+                            But if you just want to tell my something you do that here as well! I respond to every message!
+                        </p>
                         <form class="form-signup" id="contactForm"> <!--Formularz-->
                             <div class="form-group mb-4">
                                 <input class="form-control" type="text" name="name" placeholder="Enter your name..." required> <!--Imię-->
@@ -178,59 +200,7 @@
                             <div class="form-group mb-4">
                                 <textarea class="form-control" name="message" rows="4" placeholder="Enter your message..." required></textarea> <!--Treść wiadomości-->
                             </div>
-                            <div class="form-group mb-4">
-                                <select class="form-control" name="country" required> <!--Selekt z wyborem kraju-->
-                                    <option value="" data-translate="msgcountry">Select your country...</option>
-                                    <option value="USA">USA</option>
-                                    <option value="Poland">PL</option>
-                                    <option value="Germany">GER</option>
-                                    <option value="France">FRA</option>
-                                    <option value="Other">NOR</option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <p data-translate="msgage">Select your age range:</p> <!--Przycisku typu radio z wyborem przybliżonego wieku-->
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="ageRange" id="ageUnder18" value="under18" required>
-                                    <label class="form-check-label" for="ageUnder18"> &gt; 18</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="ageRange" id="age18to25" value="18to25">
-                                    <label class="form-check-label" for="age18to25">18 - 25</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="ageRange" id="age26to35" value="26to35">
-                                    <label class="form-check-label" for="age26to35">26 - 35</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="ageRange" id="age36andAbove" value="36andAbove">
-                                    <label class="form-check-label" for="age36andAbove">36 &lt; </label>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <p data-translate="msgalbum">Select your favorite album(s):</p> <!--Przyciski typu checkbox z wyborem ulubionych albumów-->
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" name="favoriteAlbum[]" id="albumIceland" value="Iceland">
-                                    <label class="form-check-label" for="albumIceland">Iceland</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" name="favoriteAlbum[]" id="albumNorway" value="Norway">
-                                    <label class="form-check-label" for="albumNorway">Norway</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" name="favoriteAlbum[]" id="albumWinter" value="Winter">
-                                    <label class="form-check-label" for="albumWinter">Winter</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" name="favoriteAlbum[]" id="albumCoversVol1" value="Covers Vol.1">
-                                    <label class="form-check-label" for="albumCoversVol1">Covers Vol.1</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" name="favoriteAlbum[]" id="albumIntheAutumnForest" value="In The Autumn Forest">
-                                    <label class="form-check-label" for="albumIntheAutumnForest">In The Autumn Forest</label>
-                                </div>
-                            </div>
-
+                            
                             <!-- Przycisk do wysłania formularza -->
                             <button class="btn btn-form" type="submit" data-translate="msgsend">Send Message</button>
                         </form>
@@ -253,7 +223,7 @@
         </div>
         
         <!--Stopka-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Matt Krupa 2020-2023</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Matt Krupa 2020-2024</div></footer>
         <!--Javascirpt Bootstrapa-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!--Mój Javascript-->
