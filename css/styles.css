@@ -700,8 +700,12 @@ textarea {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg");
 }
 
+.who {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-who.jpg");
+}
+
 /* Style dla tła różnych sekcji, położenie, rozmiar i efekt paralaksy */
-.iceland, .norway, .covers1, .autumn, .winter, .carmelis, .bc, .front, .covers2, .cats {
+.iceland, .norway, .covers1, .autumn, .winter, .carmelis, .bc, .front, .covers2, .cats, .who {
   position: relative; /* pozycjonowanie względem */
   width: 100%; /* szerokość na całą dostępną przestrzeń */
   height: auto; /* wysokość automatyczna */
