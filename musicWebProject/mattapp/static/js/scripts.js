@@ -72,7 +72,7 @@ function setLanguageBasedOnCountry(country) {
 
 // Funkcja załadowania języka
 function loadLanguage(lang) {
-    fetch(`locales/${lang}.json`)
+    fetch(`../static/locales/${lang}.json`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
