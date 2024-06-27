@@ -193,18 +193,19 @@
                             If you need to contact my about some business stuff (colaboration, using my music, soundtrack comission) you can do that right here!
                             But if you just want to tell my something you do that here as well! I respond to every message!
                         </p>
-                        <form class="form-signup" id="contactForm"> <!--Formularz-->
+                        <form class="form-signup" id="contactForm" method="post"> <!--Formularz-->
+                            {% csrf_token %}
                             <div class="form-group mb-4">
                                 {{ form2.name.errors }}
-                                <input class="form-control" type="text" name="name" placeholder="Enter your name..." required> <!--Imię-->
+                                {{ form2.name }}
                             </div>
                             <div class="form-group mb-4">
                                 {{ form2.email.errors }}
-                                <input class="form-control" type="email" name="email" placeholder="Enter your email address..." required> <!--Mail-->
+                                {{ form2.email }}
                             </div>
                             <div class="form-group mb-4">
                                 {{ form2.content.errors }}
-                                <textarea class="form-control" name="message" rows="4" placeholder="Enter your message..." required></textarea> <!--Treść wiadomości-->
+                                {{ form2.message }}
                             </div>
                             
                             <!-- Przycisk do wysłania formularza -->
