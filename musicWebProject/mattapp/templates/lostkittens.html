@@ -22,9 +22,20 @@
         <!-- Nawigacja-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <div class="language-selector ms-auto">
-                    <img src="{% static 'images/uk.png' %}" alt="English" id="lang-en">
-                    <img src="{% static 'images/pl.png' %}" alt="Polski" id="lang-pl">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Matt Krupa Logo" class="navbar-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto"> <!--Nawigacja po stronie tytułowej, odnoścniki do id sekcji-->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rezerwacja' %}">BUY LOST KITTENS CD</a></li>
+                    </ul>
+                    <div class="language-selector ms-auto">
+                        <img src="{% static 'images/uk.png' %}" alt="English" id="lang-en">
+                        <img src="{% static 'images/pl.png' %}" alt="Polski" id="lang-pl">
+                    </div>
                 </div>
             </div>
         </nav>

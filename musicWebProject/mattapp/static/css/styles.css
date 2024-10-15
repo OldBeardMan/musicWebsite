@@ -468,6 +468,14 @@ textarea {
   list-style: none;
 }
 
+.navbar-logo {
+  height: 30px; /* wysokość obrazka */
+  width: auto; /* automatyczne dostosowanie szerokości */
+  display: inline-block; /* dla lepszego umiejscowienia w linku */
+  vertical-align: middle; /* wyrównanie logo względem tekstu */
+}
+
+
 /* Styl dla zawartości rozwijanej w navbarze, ustawia podstawę i rozwój flexa oraz wyrównanie */
 .navbar-collapse {
   flex-basis: 100%;
@@ -1039,6 +1047,13 @@ textarea {
   letter-spacing: 0.15rem; /* Dostosowuje odstępy między literami */
   border: 0; /* Usuwa obramowanie */
 }
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem; /* Odstęp między etykietą a polem */
+  font-weight: bold; /* Opcjonalne: pogrubienie tekstu */
+}
+
 
 .form-signup {
   background: rgba(255, 255, 255, 0.1); /* Tło formularza jest lekko przezroczyste */

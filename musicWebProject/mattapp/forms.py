@@ -1,5 +1,5 @@
 from django import forms
-from .models import Subscriber, Message
+from .models import Subscriber, Message, Order
 
 class SubscribeForm(forms.ModelForm):
     class Meta:
@@ -34,3 +34,18 @@ class MessageForm(forms.ModelForm):
                 'placeholder': 'Enter your message...'
             }),
         }
+
+class PurchaseForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['name', 'surname', 'email', 'address', 'pickup_option']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        pickup_option = cleaned_data.get('pickup_option')
+        address = cleaned_data.get('address')
+
+        if pickup_option == 'delivery' and not address:
+            self.add_error('address', 'Address is required for delivery.')
+
+        return cleaned_data

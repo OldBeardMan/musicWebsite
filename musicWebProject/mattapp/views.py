@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import SubscribeForm, MessageForm
+from .forms import SubscribeForm, MessageForm, PurchaseForm
 
 def home_view(request):
 
@@ -19,10 +19,18 @@ def home_view(request):
 
     return render(request, 'index.html', {'form1': form1, 'form2': form2})
 
-
 def rezerwacja_view(request):
-
-    return render(request, 'rezerwacja.html')
+    if request.method == 'POST':
+        form3 = PurchaseForm(request.POST)
+        if form3.is_valid():
+            form3.save()
+            return render(request, 'rezerwacja.html', {
+                'form': form3,  # Przekazanie nowego, pustego formularza po zapisaniu
+                'success_message': 'Dziękujemy za pomyślne złożenie rezerwacji! Wkrótce otrzymasz maila z informacjami.',
+            })
+    else:
+        form3 = PurchaseForm()
+    return render(request, 'rezerwacja.html', {'form3': form3})
 
 def about_view(request):
     

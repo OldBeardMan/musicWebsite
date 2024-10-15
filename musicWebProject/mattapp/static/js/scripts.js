@@ -90,4 +90,3 @@ function loadLanguage(lang) {
         console.error('Error loading the translation file:', error);
     });
 }
-
