@@ -20,6 +20,10 @@ def home_view(request):
     return render(request, 'index.html', {'form1': form1, 'form2': form2})
 
 
+def rezerwacja_view(request):
+
+    return render(request, 'rezerwacja.html')
+
 def about_view(request):
     
     return render(request, 'about.html')
