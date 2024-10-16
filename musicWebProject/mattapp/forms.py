@@ -46,6 +46,6 @@ class PurchaseForm(forms.ModelForm):
         address = cleaned_data.get('address')
 
         if pickup_option == 'delivery' and not address:
-            self.add_error('address', 'Address is required for delivery.')
+            self.add_error('address', 'Adres jest wymagany do dostawy!')
 
         return cleaned_data

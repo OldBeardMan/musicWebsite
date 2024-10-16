@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import SubscribeForm, MessageForm, PurchaseForm
 
 def home_view(request):
@@ -24,13 +24,16 @@ def rezerwacja_view(request):
         form3 = PurchaseForm(request.POST)
         if form3.is_valid():
             form3.save()
-            return render(request, 'rezerwacja.html', {
-                'form': form3,  # Przekazanie nowego, pustego formularza po zapisaniu
-                'success_message': 'Dziękujemy za pomyślne złożenie rezerwacji! Wkrótce otrzymasz maila z informacjami.',
-            })
+            return redirect('success')  # Przekierowanie do nowego szablonu success.html
     else:
         form3 = PurchaseForm()
+    
     return render(request, 'rezerwacja.html', {'form3': form3})
+
+def success_view(request):
+    return render(request, 'success.html', {
+        'success_message': 'Dziękujemy za pomyślne złożenie rezerwacji! Wkrótce otrzymasz maila z informacjami.'
+    })
 
 def about_view(request):
     

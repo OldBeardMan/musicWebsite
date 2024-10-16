@@ -1048,6 +1048,18 @@ textarea {
   border: 0; /* Usuwa obramowanie */
 }
 
+/* Stylizacja błędów formularza */
+.form-error {
+  margin-bottom: 20px; /* Zwiększa margines dolny */
+  padding: 10px; /* Zwiększa padding wewnętrzny */
+  border-radius: 5px; /* Zaokrąglenie rogów */
+  max-width: 400px; /* Ustawia maksymalną szerokość komunikatu */
+  margin: 10px auto; /* Wyśrodkowuje komunikat */
+  background-color: #f8d7da; /* Kolor tła dla błędu */
+  color: #721c24; /* Kolor tekstu */
+  border: 1px solid #f5c6cb; /* Kolor obramowania */
+}
+
 .form-label {
   display: block;
   margin-bottom: 0.5rem; /* Odstęp między etykietą a polem */

@@ -6,8 +6,8 @@
         <!--Treść strony wzięta z mojej własnej strony https://mattkrupa.net/, ale kod oczywiście napisany od początku-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="I make ambient, electronic, acoustic and sometimes alternative music. Playing guitar, bass and piano (and some other funny instruments). ">
-        <meta property="og:image" content="https://mattkrupa.net/static/images/seohome.jpg">
+        <meta name="description" content="Zarezerwuj sobie kopię najnowszej płyty Matt Krupa już dziś! ">
+        <meta property="og:image" content="https://mattkrupa.net/static/images/CDlink.jpg">
         <meta property="og:type" content="website" />
         <title>Kup album Lost Kittens</title>
         <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
@@ -65,86 +65,97 @@
                             <div class="form-group mb-4">
                                 <label class="form-label" for="{{ form3.name.id_for_label }}">{{ form3.name.label }}</label>
                                 {{ form3.name }}
-                                {{ form3.name.errors }}
+                                {% if form3.name.errors %}
+                                    <div class="form-error">{{ form3.name.errors }}</div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group mb-4">
                                 <label class="form-label" for="{{ form3.surname.id_for_label }}">{{ form3.surname.label }}</label>
                                 {{ form3.surname }}
-                                {{ form3.surname.errors }}
+                                {% if form3.surname.errors %}
+                                    <div class="form-error">{{ form3.surname.errors }}</div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group mb-4">
                                 <label class="form-label" for="{{ form3.email.id_for_label }}">{{ form3.email.label }}</label>
                                 {{ form3.email }}
-                                {{ form3.email.errors }}
+                                {% if form3.email.errors %}
+                                    <div class="form-error">{{ form3.email.errors }}</div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group mb-4">
                                 <label class="form-label" for="{{ form3.pickup_option.id_for_label }}">{{ form3.pickup_option.label }}</label>
                                 {{ form3.pickup_option }}
-                                {{ form3.pickup_option.errors }}
+                                {% if form3.pickup_option.errors %}
+                                    <div class="form-error">{{ form3.pickup_option.errors }}</div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group mb-4" id="address-field" style="display: none;">
                                 <label class="form-label" for="{{ form3.address.id_for_label }}">{{ form3.address.label }}</label>
-                                {{ form3.address }}
-                                {{ form3.address.errors }}
-                            </div>
+                                {% if form3.address.errors %}
+                                    <div class="form-error alert alert-danger">{{ form3.address.errors }}</div>
+                                {% endif %}
 
-                            {% if success_message %}
-                            <div class="alert alert-success mt-4" role="alert">
-                                {{ success_message }}
+                                {{ form3.address }}
                             </div>
+                            
+                            {% if success_message %}
+                                <div class="alert alert-success mt-4" id="successMessage" role="alert">
+                                    {{ success_message }}
+                                </div>
+                            {% else %}
+                                <button class="btn btn-form" type="submit">Zarezerwuj</button>
                             {% endif %}
-  
-                            <button class="btn btn-form" type="submit">Purchase</button>
                         </form>
-                        
                     </div>
                 </div>
             </div>
         </section>
         
-        <script>//nie ruszaj tego już gówna zasranego
+        
+        <script>
             window.addEventListener('DOMContentLoaded', event => {
-            // Inne istniejące funkcje
-            var navbarShrink = function () {
-                const navbarCollapsible = document.body.querySelector('#mainNav');
-                if (!navbarCollapsible) {
-                    return;
-                }
-                if (window.scrollY === 0) {
-                    navbarCollapsible.classList.remove('navbar-shrink')
-                } else {
-                    navbarCollapsible.classList.add('navbar-shrink')
-                }
-            };
-
-            navbarShrink();
-            document.addEventListener('scroll', navbarShrink);
-
-            const mainNav = document.body.querySelector('#mainNav');
-            if (mainNav) {
-                new bootstrap.ScrollSpy(document.body, {
-                    target: '#mainNav',
-                    rootMargin: '0px 0px -40%',
-                });
-            }
-
-            const navbarToggler = document.body.querySelector('.navbar-toggler');
-            const responsiveNavItems = [].slice.call(
-                document.querySelectorAll('#navbarResponsive .nav-link')
-            );
-            responsiveNavItems.map(function (responsiveNavItem) {
-                responsiveNavItem.addEventListener('click', () => {
-                    if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                        navbarToggler.click();
+                // Inne istniejące funkcje
+                var navbarShrink = function () {
+                    const navbarCollapsible = document.body.querySelector('#mainNav');
+                    if (!navbarCollapsible) {
+                        return;
                     }
+                    if (window.scrollY === 0) {
+                        navbarCollapsible.classList.remove('navbar-shrink')
+                    } else {
+                        navbarCollapsible.classList.add('navbar-shrink')
+                    }
+                };
+        
+                navbarShrink();
+                document.addEventListener('scroll', navbarShrink);
+        
+                const mainNav = document.body.querySelector('#mainNav');
+                if (mainNav) {
+                    new bootstrap.ScrollSpy(document.body, {
+                        target: '#mainNav',
+                        rootMargin: '0px 0px -40%',
+                    });
+                }
+        
+                const navbarToggler = document.body.querySelector('.navbar-toggler');
+                const responsiveNavItems = [].slice.call(
+                    document.querySelectorAll('#navbarResponsive .nav-link')
+                );
+                responsiveNavItems.map(function (responsiveNavItem) {
+                    responsiveNavItem.addEventListener('click', () => {
+                        if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                            navbarToggler.click();
+                        }
+                    });
                 });
             });
-            });
-
+        
             document.addEventListener('DOMContentLoaded', function () {
                 const pickupOptionField = document.getElementById('id_pickup_option');
                 const addressField = document.getElementById('address-field');
@@ -154,7 +165,7 @@
                         addressField.style.display = 'block';
                     } else {
                         addressField.style.display = 'none';
-                        document.getElementById('id_address').value = '';  // Wyzerowanie wartości pola adresu, jeśli nie jest wymagane
+                        document.getElementById('id_address').value = ''; // Wyzerowanie wartości pola adresu, jeśli nie jest wymagane
                     }
                 }
         
@@ -162,8 +173,22 @@
         
                 // Wywołanie funkcji przy ładowaniu strony w przypadku, gdy wartość formularza jest już ustawiona
                 toggleAddressField();
+        
+                setTimeout(function() {
+        const purchaseForm = document.getElementById('purchaseForm');
+        const errorList = document.querySelector('.errorlist');
+        const successMessage = document.getElementById('successMessage');
+
+        // Sprawdzenie, czy pojawiły się błędy formularza lub komunikat sukcesu.
+        if (errorList || successMessage) {
+            const targetElement = purchaseForm;
+            // Przewinięcie do formularza lub komunikatu sukcesu, jeśli się pojawiły.
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 300);
             });
         </script>
+        
 
         <!--Stopka-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Matt Krupa 2020-2024</div></footer>

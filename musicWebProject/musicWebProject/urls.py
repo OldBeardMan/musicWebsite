@@ -21,7 +21,7 @@ from django.urls import path
 from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 #from mattapp.sitemaps import mysiteMap
-from mattapp.views import rezerwacja_view, home_view, about_view, iceland_view, norway_view, winter_view, coversvol1_view, intheautumnforest_view, bc_view, coversvol2_view, lostkittens_view, carmelis_view
+from mattapp.views import success_view, rezerwacja_view, home_view, about_view, iceland_view, norway_view, winter_view, coversvol1_view, intheautumnforest_view, bc_view, coversvol2_view, lostkittens_view, carmelis_view
 
 #sitemaps = {
 #    'static' : mysiteMap,
@@ -31,6 +31,7 @@ urlpatterns = [
     path('', home_view, name='home'), #home
     path('about/', about_view, name='about'),
     path('iceland/', iceland_view, name='iceland'),
+    path('lostkittens/cd/sukces', success_view, name='success'),
     path('norway/', norway_view, name='norway'),
     path('winter/', winter_view, name='winter'),
     path('coversvol1/', coversvol1_view, name='coversvol1'),
